@@ -7,7 +7,7 @@
     "test": "jest",
     "tsc": "tsc",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/main.ts",
-    "start": "npm run tsc && node ./dist/src/main.js"
+    "start": "tsc && node ./dist/src/main.js"
   },
   "keywords": [
     "api"
@@ -42,5 +42,8 @@
     "sqlite3": "^5.1.4",
     "swagger-ui-express": "^4.6.1",
     "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": "16.18.0"
   }
 }
