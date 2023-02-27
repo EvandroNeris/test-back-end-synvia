@@ -1,0 +1,19 @@
+version: '3.2'
+
+services: 
+  test-api-synvia:
+    image: evandroneris/api-synvia
+    container_name: api-synvia
+    restart: unless-stopped
+
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+
+    volumes: 
+     - "./:/node/app"
+
+    ports:
+      - 3333:3333
+    environment:
+      - PORT=3333
