@@ -11,6 +11,7 @@ import THC from '../value-object/toxins/thc'
 import SampleCode from '../value-object/sampleCode'
 import { NEGATIVE, POSITIVE } from '../../../utils/shared-constants'
 import ToxicologicalSampleInterface from './toxicologicalSample.interface'
+import ErrorMessage from '../../../utils/error-messages'
 
 export default class ToxicologicalSample implements ToxicologicalSampleInterface {
   private _id: string
@@ -98,7 +99,7 @@ export default class ToxicologicalSample implements ToxicologicalSampleInterface
 
   private handleValidate(): boolean {
     if(this._id.length === 0) {
-      throw new Error('Id is required')
+      throw new Error(ErrorMessage.toxicologicalSample['0001'])
     }
 
     return true

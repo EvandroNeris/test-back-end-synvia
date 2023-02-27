@@ -1,5 +1,6 @@
 import ToxicologicalSample from '../../../domain/toxicological-sample/entity/toxicologicalSample'
 import ToxicologialSampleRepositoryInterface from '../../../domain/toxicological-sample/repository/toxicologicalSample-repository.interface'
+import ErrorMessage from '../../../utils/error-messages'
 import ToxicologicalSampleModel from './toxicologicalSample.model'
 
 export default class ToxicologicalSampleRepository implements ToxicologialSampleRepositoryInterface {
@@ -27,7 +28,7 @@ export default class ToxicologicalSampleRepository implements ToxicologialSample
     const result = await ToxicologicalSampleModel.findOne({ where: { sampleCode: _sampleCode }})
 
     if (!result?.id) {
-      throw new Error('Toxicological Sample not found')
+      throw new Error(ErrorMessage.toxicologicalSample['0002'])
     }
 
     const { dataValues: { id, sampleCode, ...rest } } = result

@@ -1,5 +1,6 @@
 import User from '../../../domain/user/entity/user'
 import UserRepositoryInterface from '../../../domain/user/repository/user-repository.interface'
+import ErrorMessage from '../../../utils/error-messages'
 import UserModel from './user.model'
 
 export default class UserRepository implements UserRepositoryInterface {
@@ -14,7 +15,7 @@ export default class UserRepository implements UserRepositoryInterface {
   async findOne(_email: string): Promise<User> {
     const result = await UserModel.findOne({ where: { email: _email } })
     if (!result) {
-      throw new Error('User not found')
+      throw new Error(ErrorMessage.user['0005'])
     }
 
     const { dataValues: { id, email, password } } = result

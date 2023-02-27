@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import UserRepository from '../../../infra/repository/sequelize/user.repository'
 import User from '../entity/user'
+import ErrorMessage from '../../../utils/error-messages'
 
 dotenv.config()
 
@@ -25,13 +26,13 @@ export default class UserFactory {
     const foundUser = await userRepository.findOne(email)
 
     if (!foundUser) {
-      throw new Error('User not found')
+      throw new Error(ErrorMessage.login['0001'])
     }
 
     const isMatch = bcrypt.compareSync(password, foundUser.password)
 
     if (!isMatch) {
-      throw new Error('Password is not correct')
+      throw new Error(ErrorMessage.login['0002'])
     }
 
     const token = jwt.sign({ id: foundUser.id, email: foundUser.email }, process.env.SECRET_KEY, {

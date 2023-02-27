@@ -7,6 +7,7 @@ import ToxicologicalSampleFactory from '../../../domain/toxicological-sample/fac
 import connection from '../../../config/sequelize'
 import Auth from './middlewares/auth'
 import UserFactory from '../../../domain/user/factory/user.factory'
+import ErrorMessage from '../../../utils/error-messages'
 
 dotenv.config()
 
@@ -32,7 +33,7 @@ export default class Server {
 
         res.status(200).json(toxicologicalSampleFactory)
       } catch (error) {
-        res.status(500).send({ message: 'Internal server error.' })
+        res.status(500).send({ message: ErrorMessage.server['0001'] })
       }
     })
 
@@ -44,7 +45,7 @@ export default class Server {
       
         res.status(200).json(toxicologicalSampleFactory)
       } catch (error) {
-        res.status(500).send({ message: 'Internal server error.' })
+        res.status(500).send({ message: ErrorMessage.server['0001'] })
       }
     })
 
@@ -55,7 +56,7 @@ export default class Server {
         const toxicologicalSampleFactory = ToxicologicalSampleFactory.create(sampleCode, rest)
         res.status(200).json(toxicologicalSampleFactory)
       } catch (error) {
-        res.status(500).send({ message: 'Internal server error.' })
+        res.status(500).send({ message: ErrorMessage.server['0001'] })
       }
     })
     
@@ -66,7 +67,7 @@ export default class Server {
         const userFactory = UserFactory.create(email, password)
         res.status(200).json(userFactory)
       } catch (error) {
-        res.status(500).send({ message: 'Internal server error.' })
+        res.status(500).send({ message: ErrorMessage.server['0001'] })
       }
     })
 
@@ -77,7 +78,7 @@ export default class Server {
         const userFactory = await UserFactory.login(email, password)
         res.status(200).json(userFactory)
       } catch (error) {
-        res.status(500).send({ message: 'Internal server error.' })
+        res.status(500).send({ message: ErrorMessage.server['0001'] })
       }
     })
 

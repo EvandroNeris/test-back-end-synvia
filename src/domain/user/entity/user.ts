@@ -1,3 +1,4 @@
+import ErrorMessage from '../../../utils/error-messages'
 import UserInterface from './user.interface'
 
 export default class User implements UserInterface {
@@ -27,19 +28,19 @@ export default class User implements UserInterface {
 
   handleValidate(): boolean {
     if (this._id.length === 0) {
-      throw new Error('Id is required')
+      throw new Error(ErrorMessage.user['0001'])
     }
 
     if (this._email.length === 0) {
-      throw new Error('Email is required')
+      throw new Error(ErrorMessage.user['0002'])
     }
 
     if (this._password.length === 0) {
-      throw new Error('Password is required')
+      throw new Error(ErrorMessage.user['0003'])
     }
 
     if (this._password.length < 8) {
-      throw new Error('Password needs to be equal or greater than 88 characters')
+      throw new Error(ErrorMessage.user['0004'])
     }
 
     return true
