@@ -1,0 +1,269 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Toxicological Sample Api",
+      "description": "Get result from sample.",
+      "version": "1.0.0"
+    },
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "Enter the token with the `Bearer ` prefix, e.g. 'Bearer adas22222'"
+      }
+    },
+    "paths": {
+      "/create-account": {
+        "post": {
+          "summary": "Create Account",
+          "parameters": [
+            {
+              "name": "boby",
+              "in": "body",
+              "required": true
+            }
+          ],
+          "tags": [
+            "Create Account"
+          ],
+          "responses": {
+            "200": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "summary": "Login",
+          "parameters": [
+            {
+              "name": "boby",
+              "in": "body",
+              "required": true
+            }
+          ],
+          "tags": [
+            "Login"
+          ],
+          "responses": {
+            "200": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "token": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/toxicological-sample": {
+        "get": {
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "summary": "Toxicological Sample",
+          "tags": [
+            "Toxicological Sample"
+          ],
+          "responses": {
+            "200": {
+              "description": "An array of toxicologicalSamples",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "sampleResult": {
+                    "type": "string"
+                  },
+                  "sampleCode": {
+                    "type": "string"
+                  },
+                  "cocaine": {
+                    "type": "number"
+                  },
+                  "amphetamine": {
+                    "type": "number"
+                  },
+                  "methamphetamine": {
+                    "type": "number"
+                  },
+                  "mda": {
+                    "type": "number"
+                  },
+                  "mdma": {
+                    "type": "number"
+                  },
+                  "thc": {
+                    "type": "number"
+                  },
+                  "morphine": {
+                    "type": "number"
+                  },
+                  "codeine": {
+                    "type": "number"
+                  },
+                  "heroine": {
+                    "type": "number"
+                  },
+                  "benzoylecgonine": {
+                    "type": "number"
+                  },
+                  "cocaethylene": {
+                    "type": "number"
+                  },
+                  "norcocaine": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "security": [{
+            "Bearer": []
+          }],
+          "summary": "Toxicological Sample",
+          "parameters": [
+            {
+              "name": "boby",
+              "in": "body",
+              "required": true
+            }
+          ],
+          "tags": [
+            "Toxicological Sample"
+          ],
+          "responses": {
+            "200": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "sampleResult": {
+                    "type": "string"
+                  },
+                  "sampleCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/toxicological-sample/{sampleCode}": {
+        "get": {
+          "security": [{
+            "Bearer": []
+          }],
+          "summary": "Toxicological Sample",
+          "parameters": [
+            {
+              "name": "sampleCode",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "tags": [
+            "Toxicological Sample"
+          ],
+          "responses": {
+            "200": {
+              "description": "A object of toxicologicalSample",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "sampleResult": {
+                    "type": "string"
+                  },
+                  "sampleCode": {
+                    "type": "string"
+                  },
+                  "cocaine": {
+                    "type": "number"
+                  },
+                  "amphetamine": {
+                    "type": "number"
+                  },
+                  "methamphetamine": {
+                    "type": "number"
+                  },
+                  "mda": {
+                    "type": "number"
+                  },
+                  "mdma": {
+                    "type": "number"
+                  },
+                  "thc": {
+                    "type": "number"
+                  },
+                  "morphine": {
+                    "type": "number"
+                  },
+                  "codeine": {
+                    "type": "number"
+                  },
+                  "heroine": {
+                    "type": "number"
+                  },
+                  "benzoylecgonine": {
+                    "type": "number"
+                  },
+                  "cocaethylene": {
+                    "type": "number"
+                  },
+                  "norcocaine": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
