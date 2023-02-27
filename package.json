@@ -7,7 +7,8 @@
     "test": "jest",
     "tsc": "tsc",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/main.ts",
-    "start": "tsc && node ./dist/src/main.js"
+    "start": "node ./dist/src/main.js",
+    "postinstall": "tsc"
   },
   "keywords": [
     "api"
