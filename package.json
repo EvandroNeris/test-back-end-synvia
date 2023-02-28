@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/main.ts",
     "start": "node ./dist/src/main.js",
-    "postinstall": "tsc"
+    "postinstall": "tsc -p ."
   },
   "keywords": [
     "api"
